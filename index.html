@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Guide to AI-Powered App Builders</title>
+    <!-- Chosen Palette: "Calm Harmony" - A palette grounded in warm neutrals (alabaster, slate gray) with a subtle teal accent for interactive elements. -->
+    <!-- Application Structure Plan: A single-page application with a sticky top navigation bar to switch between thematic sections. This non-linear structure prevents overwhelming the user with the report's density. The sections are: 1) Hero/Intro, 2) The No-Code Revolution (key concepts), 3) The App Builder's Workflow (interactive timeline), 4) The Tool Explorer (a filterable/searchable dashboard of tools, which is the core interactive component), 5) Tool Comparison (a dynamic Chart.js visualization), 6) Key Selection Factors (interactive checklist), and 7) Conclusion. This structure guides the user from general knowledge to specific, actionable tool selection, which is more intuitive and user-centric than the original report's linear format. -->
+    <!-- Visualization & Content Choices: 1. Key Concepts (Inform): Used interactive cards with hover effects to present key AI functions. 2. Workflow (Organize/Change): Implemented a clickable horizontal stepper diagram using HTML/Tailwind, with JS to show/hide corresponding details. This visualizes the process more effectively than a list. 3. Tool Explorer (Compare/Organize): A dynamic grid of cards populated from a JS data object. JS filters allow users to narrow down the vast list of tools by category, pricing, and learning curve, directly addressing the goal of comparing and organizing information. Clicking a tool card triggers a modal with detailed data, managed by JS. 4. Tool Comparison (Compare): A dynamic bar chart (Chart.js/Canvas) allows users to select and visually compare tools based on abstract metrics derived from the report (e.g., Ease of Use, AI Capability). This provides a quick, quantitative-style comparison. 5. Selection Factors (Inform/Interact): An interactive checklist allows users to self-assess their needs, making the report's advice more personal and engaging. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css"/>
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8f9fa; color: #343a40; }
+        .nav-link { transition: all 0.3s ease; }
+        .nav-link.active { color: #0d9488; border-bottom-color: #0d9488; }
+        .nav-link:hover { color: #0d9488; }
+        .section { display: none; }
+        .section.active { display: block; }
+        .tool-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .tool-card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); }
+        .modal { display: none; z-index: 100; }
+        .modal.active { display: flex; }
+        .chart-container { position: relative; width: 100%; max-width: 800px; margin: auto; height: 400px; max-height: 50vh;}
+        @media (min-width: 768px) { .chart-container { height: 500px; } }
+        [x-cloak] { display: none; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <div id="app" class="container mx-auto p-4 md:p-8">
+        <header class="bg-white shadow-md rounded-xl sticky top-4 z-50 mb-8">
+            <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-16">
+                    <div class="flex-shrink-0">
+                        <h1 class="text-xl md:text-2xl font-bold text-teal-700">AI App Builders</h1>
+                    </div>
+                    <div class="hidden md:block">
+                        <div id="nav-links" class="ml-10 flex items-baseline space-x-4">
+                            <a href="#home" data-section="home" class="nav-link px-3 py-2 text-sm font-medium text-gray-600 border-b-2 border-transparent">Home</a>
+                            <a href="#revolution" data-section="revolution" class="nav-link px-3 py-2 text-sm font-medium text-gray-600 border-b-2 border-transparent">The Revolution</a>
+                            <a href="#workflow" data-section="workflow" class="nav-link px-3 py-2 text-sm font-medium text-gray-600 border-b-2 border-transparent">Workflow</a>
+                            <a href="#explorer" data-section="explorer" class="nav-link px-3 py-2 text-sm font-medium text-gray-600 border-b-2 border-transparent">Tool Explorer</a>
+                            <a href="#comparison" data-section="comparison" class="nav-link px-3 py-2 text-sm font-medium text-gray-600 border-b-2 border-transparent">Comparison</a>
+                            <a href="#factors" data-section="factors" class="nav-link px-3 py-2 text-sm font-medium text-gray-600 border-b-2 border-transparent">Selection Factors</a>
+                        </div>
+                    </div>
+                    <div class="md:hidden">
+                        <select id="mobile-nav" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-full p-2.5">
+                            <option value="home">Home</option>
+                            <option value="revolution">The Revolution</option>
+                            <option value="workflow">Workflow</option>
+                            <option value="explorer">Tool Explorer</option>
+                            <option value="comparison">Comparison</option>
+                            <option value="factors">Selection Factors</option>
+                        </select>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <section id="home" class="section">
+                <div class="bg-white p-8 rounded-xl shadow-lg text-center animate-fade-in">
+                    <h2 class="text-4xl md:text-5xl font-extrabold text-gray-800 mb-4">Building Apps Without Code</h2>
+                    <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-6">"If you can describe it, you can build it." This is the new mantra in the era of no-code and AI-assisted development. Discover the tools and workflows that are democratizing software creation, making it faster, cheaper, and more accessible than ever before.</p>
+                    <p class="text-md text-gray-500 max-w-2xl mx-auto">This interactive application translates a comprehensive report into an explorable experience. Navigate through the sections using the menu above to understand the landscape, explore tools, and find the perfect solution for your next project.</p>
+                    <button onclick="navigateToSection('explorer')" class="mt-8 px-8 py-3 bg-teal-600 text-white font-bold rounded-full hover:bg-teal-700 transition-colors duration-300 shadow-lg">Start Exploring Tools ➔</button>
+                </div>
+            </section>
+
+            <section id="revolution" class="section">
+                <div class="bg-white p-8 rounded-xl shadow-lg animate-fade-in">
+                    <h2 class="text-3xl font-bold text-center mb-2">What Are Apps, Really?</h2>
+                    <p class="text-center text-gray-600 mb-8 max-w-3xl mx-auto">Most applications are about managing and presenting data. In tech terms, they are often CRUD apps—they allow users to <strong>C</strong>reate, <strong>R</strong>ead, <strong>U</strong>pdate, and <strong>D</strong>elete data. Understanding this is empowering: if your idea involves collecting, storing, and displaying information, it's likely a CRUD app at heart, and these are what no-code platforms excel at building.</p>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                         <div class="p-6 bg-gray-50 rounded-lg border border-gray-200 hover:shadow-md transition-shadow">
+                            <h3 class="font-semibold text-lg mb-2 text-teal-700">🤖 Code Generation</h3>
+                            <p class="text-gray-600 text-sm">AI translates natural language prompts into functional code (HTML, CSS, JS), allowing users to describe functionality instead of writing it.</p>
+                        </div>
+                        <div class="p-6 bg-gray-50 rounded-lg border border-gray-200 hover:shadow-md transition-shadow">
+                            <h3 class="font-semibold text-lg mb-2 text-teal-700">🎨 Design Automation</h3>
+                            <p class="text-gray-600 text-sm">AI generates layouts, user interfaces, and responsive designs from text descriptions, ensuring aesthetic coherence and device adaptability.</p>
+                        </div>
+                        <div class="p-6 bg-gray-50 rounded-lg border border-gray-200 hover:shadow-md transition-shadow">
+                            <h3 class="font-semibold text-lg mb-2 text-teal-700">✍️ Content Generation</h3>
+                            <p class="text-gray-600 text-sm">AI assists in creating text, images, and even videos, significantly reducing the manual effort and skills needed for content creation.</p>
+                        </div>
+                        <div class="p-6 bg-gray-50 rounded-lg border border-gray-200 hover:shadow-md transition-shadow">
+                            <h3 class="font-semibold text-lg mb-2 text-teal-700">⚙️ Workflow Optimization</h3>
+                            <p class="text-gray-600 text-sm">AI automates repetitive tasks, data processing, and integrations between different software applications, enhancing efficiency.</p>
+                        </div>
+                        <div class="p-6 bg-gray-50 rounded-lg border border-gray-200 hover:shadow-md transition-shadow">
+                            <h3 class="font-semibold text-lg mb-2 text-teal-700">💡 Smart Suggestions</h3>
+                            <p class="text-gray-600 text-sm">AI provides real-time insights, recommendations for improvements, and assists in identifying and resolving bugs in logic or design.</p>
+                        </div>
+                         <div class="p-6 bg-gray-50 rounded-lg border border-gray-200 hover:shadow-md transition-shadow">
+                            <h3 class="font-semibold text-lg mb-2 text-teal-700">Democratization</h3>
+                            <p class="text-gray-600 text-sm">Ultimately, AI makes app creation accessible, faster, and more cost-effective, turning creators into "AI conductors" who orchestrate systems to build solutions.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="workflow" class="section">
+                 <div class="bg-white p-8 rounded-xl shadow-lg animate-fade-in">
+                    <h2 class="text-3xl font-bold text-center mb-2">The App Building Workflow</h2>
+                    <p class="text-center text-gray-600 mb-8 max-w-3xl mx-auto">Building an app follows a streamlined process, from idea to launch. Click each phase to see how to transform your idea into a launched product with minimal (or zero) coding.</p>
+                    <div id="workflow-tabs" class="mb-6 flex flex-wrap justify-center border-b border-gray-200">
+                        <button data-phase="1" class="workflow-tab py-4 px-6 block text-center font-medium border-b-2 text-teal-600 border-teal-600">Phase 1: Idea</button>
+                        <button data-phase="2" class="workflow-tab py-4 px-6 block text-center font-medium border-b-2 text-gray-500 border-transparent hover:text-gray-700 hover:border-gray-300">Phase 2: Tool Choice</button>
+                        <button data-phase="3" class="workflow-tab py-4 px-6 block text-center font-medium border-b-2 text-gray-500 border-transparent hover:text-gray-700 hover:border-gray-300">Phase 3: Build</button>
+                        <button data-phase="4" class="workflow-tab py-4 px-6 block text-center font-medium border-b-2 text-gray-500 border-transparent hover:text-gray-700 hover:border-gray-300">Phase 4: Iterate</button>
+                        <button data-phase="5" class="workflow-tab py-4 px-6 block text-center font-medium border-b-2 text-gray-500 border-transparent hover:text-gray-700 hover:border-gray-300">Phase 5: Ask Devs</button>
+                        <button data-phase="6" class="workflow-tab py-4 px-6 block text-center font-medium border-b-2 text-gray-500 border-transparent hover:text-gray-700 hover:border-gray-300">Phase 6: Launch</button>
+                    </div>
+                    <div id="workflow-content" class="mt-4">
+                    </div>
+                </div>
+            </section>
+            
+            <section id="explorer" class="section">
+                 <div class="bg-white p-8 rounded-xl shadow-lg animate-fade-in">
+                    <h2 class="text-3xl font-bold text-center mb-2">Tool Explorer</h2>
+                    <p class="text-center text-gray-600 mb-8 max-w-3xl mx-auto">Dive into the ecosystem of AI-powered no-code and low-code tools. Use the filters to narrow down the options based on what you want to build, your budget, and your technical comfort level. Click on any tool to see a detailed overview.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-5 gap-4 mb-8 p-4 bg-gray-100 rounded-lg">
+                        <div>
+                            <label for="search-tool" class="block text-sm font-medium text-gray-700">Search</label>
+                            <input type="text" id="search-tool" placeholder="Search by name..." class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-teal-500 focus:border-teal-500 sm:text-sm rounded-md">
+                        </div>
+                        <div>
+                            <label for="filter-category" class="block text-sm font-medium text-gray-700">Category</label>
+                            <select id="filter-category" multiple>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="filter-pricing" class="block text-sm font-medium text-gray-700">Pricing Model</label>
+                            <select id="filter-pricing" multiple>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="filter-learning-curve" class="block text-sm font-medium text-gray-700">Learning Curve</label>
+                            <select id="filter-learning-curve" multiple>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="sort-by" class="block text-sm font-medium text-gray-700">Sort By</label>
+                            <select id="sort-by" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-teal-500 focus:border-teal-500 sm:text-sm rounded-md">
+                                <option value="default">Default</option>
+                                <option value="rating-desc" selected>Rating: High to Low</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="tool-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    </div>
+                    <p id="no-results" class="text-center text-gray-500 py-10" style="display: none;">No tools match your criteria.</p>
+                </div>
+            </section>
+
+            <section id="comparison" class="section">
+                <div class="bg-white p-8 rounded-xl shadow-lg animate-fade-in">
+                    <h2 class="text-3xl font-bold text-center mb-2">Tool Comparison Dashboard</h2>
+                    <p class="text-center text-gray-600 mb-8 max-w-3xl mx-auto">Visually compare different tools based on key attributes. Select up to three tools from the dropdowns below to see how they stack up in terms of ease of use, AI capability depth, and potential for scalability. This helps you quickly identify which platforms best align with your project's demands.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                         <select id="compare-tool-1" class="block w-full p-2 border border-gray-300 rounded-md"></select>
+                         <select id="compare-tool-2" class="block w-full p-2 border border-gray-300 rounded-md"></select>
+                         <select id="compare-tool-3" class="block w-full p-2 border border-gray-300 rounded-md"></select>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="comparison-chart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <section id="factors" class="section">
+                <div class="bg-white p-8 rounded-xl shadow-lg animate-fade-in">
+                    <h2 class="text-3xl font-bold text-center mb-2">Key Factors for Selecting Your Tool</h2>
+                    <p class="text-center text-gray-600 mb-8 max-w-3xl mx-auto">Choosing the right tool is critical for success. This isn't just about features; it's about finding the platform that aligns with your project goals, technical skills, and future needs. Use this interactive checklist to clarify your priorities and guide your decision-making process.</p>
+                    <div class="space-y-4 max-w-2xl mx-auto">
+                        <div class="p-4 bg-gray-50 rounded-lg border border-gray-200">
+                            <h3 class="font-semibold text-lg mb-2">🎯 Use Case & Complexity</h3>
+                            <p class="text-gray-600 text-sm">What are you building? A design-heavy marketing site or a data-heavy internal tool? Do you need user logins, data storage, or integrations? Match the tool's core strengths to your project's needs.</p>
+                        </div>
+                        <div class="p-4 bg-gray-50 rounded-lg border border-gray-200">
+                            <h3 class="font-semibold text-lg mb-2">🧗 Learning Curve vs. Power</h3>
+                            <p class="text-gray-600 text-sm">Be realistic about your technical comfort. Easy tools like Softr are great for beginners, while powerful platforms like Bubble offer more customization but have a steeper learning curve.</p>
+                        </div>
+                         <div class="p-4 bg-gray-50 rounded-lg border border-gray-200">
+                            <h3 class="font-semibold text-lg mb-2">💰 Cost and Free Tier</h3>
+                            <p class="text-gray-600 text-sm">Evaluate free plans, subscription costs, and usage limits (e.g., number of users, database records). Ensure the free tier is sufficient for testing and that paid plans align with your budget.</p>
+                        </div>
+                         <div class="p-4 bg-gray-50 rounded-lg border border-gray-200">
+                            <h3 class="font-semibold text-lg mb-2">🤝 Community and Support</h3>
+                            <p class="text-gray-600 text-sm">When you get stuck, a strong community forum or good tutorials can be a lifesaver. Platforms with active communities make it easier to find answers and succeed.</p>
+                        </div>
+                         <div class="p-4 bg-gray-50 rounded-lg border border-gray-200">
+                            <h3 class="font-semibold text-lg mb-2">🎨 Custom Design vs. Templates</h3>
+                            <p class="text-gray-600 text-sm">How important is a unique design? Tools like Framer or Webflow offer fine-grained visual control, while others are more template-based. Choose based on your design priorities.</p>
+                        </div>
+                         <div class="p-4 bg-gray-50 rounded-lg border border-gray-200">
+                            <h3 class="font-semibold text-lg mb-2">↩️ Undo & Safety Nets</h3>
+                            <p class="text-gray-600 text-sm">A small but crucial factor: does the tool have a robust undo/redo feature or version history? When you're experimenting, the ability to easily revert mistakes is invaluable.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div id="tool-modal" class="modal fixed inset-0 bg-black bg-opacity-50 items-center justify-center p-4">
+        <div class="bg-white rounded-lg shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
+            <div class="p-6">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h2 id="modal-title" class="text-2xl font-bold"></h2>
+                        <p id="modal-category" class="text-sm text-teal-600 font-medium"></p>
+                    </div>
+                    <button onclick="closeModal()" class="text-gray-400 hover:text-gray-600">&times;</button>
+                </div>
+                <div class="mt-4 border-t pt-4">
+                    <p id="modal-description" class="text-gray-600 mb-4"></p>
+                    <h3 class="font-semibold text-md mb-2">Key Information:</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                        <div class="bg-gray-50 p-3 rounded-md">
+                            <strong class="text-gray-700 block">Target User</strong>
+                            <span id="modal-user"></span>
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded-md">
+                            <strong class="text-gray-700 block">Learning Curve</strong>
+                            <span id="modal-curve"></span>
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded-md">
+                            <strong class="text-gray-700 block">Pricing</strong>
+                            <span id="modal-pricing"></span>
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded-md">
+                            <strong class="text-gray-700 block">Rating</strong>
+                            <span id="modal-rating"></span>
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded-md">
+                            <strong class="text-gray-700 block">CRUD Support</strong>
+                            <span id="modal-crud"></span>
+                        </div>
+                    </div>
+                     <h3 class="font-semibold text-md mt-4 mb-2">AI Capabilities:</h3>
+                    <p id="modal-ai" class="text-gray-600 text-sm bg-gray-50 p-3 rounded-md"></p>
+                    <h3 class="font-semibold text-md mt-4 mb-2">Data Handling:</h3>
+                    <p id="modal-data" class="text-gray-600 text-sm bg-gray-50 p-3 rounded-md"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const sections = document.querySelectorAll('.section');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const mobileNav = document.getElementById('mobile-nav');
+    
+    const toolGrid = document.getElementById('tool-grid');
+    const filterCategory = document.getElementById('filter-category');
+    const filterPricing = document.getElementById('filter-pricing');
+    const filterLearningCurve = document.getElementById('filter-learning-curve');
+    const noResults = document.getElementById('no-results');
+    const searchTool = document.getElementById('search-tool');
+    const sortBy = document.getElementById('sort-by');
+
+    const modal = document.getElementById('tool-modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalCategory = document.getElementById('modal-category');
+    const modalDescription = document.getElementById('modal-description');
+    const modalUser = document.getElementById('modal-user');
+    const modalCurve = document.getElementById('modal-curve');
+    const modalPricing = document.getElementById('modal-pricing');
+    const modalCrud = document.getElementById('modal-crud');
+    const modalRating = document.getElementById('modal-rating');
+    const modalAi = document.getElementById('modal-ai');
+    const modalData = document.getElementById('modal-data');
+    
+    const workflowTabs = document.querySelectorAll('.workflow-tab');
+    const workflowContent = document.getElementById('workflow-content');
+
+    const compareTool1 = document.getElementById('compare-tool-1');
+    const compareTool2 = document.getElementById('compare-tool-2');
+    const compareTool3 = document.getElementById('compare-tool-3');
+    const comparisonChartCanvas = document.getElementById('comparison-chart').getContext('2d');
+    let comparisonChart;
+    let categoryChoices, pricingChoices, curveChoices;
+
+    const unique = (key, tools) => [...new Set(tools.map(item => item[key]))];
+
+    function populateFilters(tools) {
+        const categoryOptions = unique('category', tools).map(val => ({ value: val, label: val }));
+        categoryChoices = new Choices(filterCategory, {
+            choices: categoryOptions,
+            removeItemButton: true,
+            placeholder: true,
+            placeholderValue: 'All Categories'
+        });
+
+        const pricingOptions = unique('pricing', tools).map(val => ({ value: val, label: val }));
+        pricingChoices = new Choices(filterPricing, {
+            choices: pricingOptions,
+            removeItemButton: true,
+            placeholder: true,
+            placeholderValue: 'All Pricing'
+        });
+
+        const curveOptions = unique('curve', tools).map(val => ({ value: val, label: val }));
+        curveChoices = new Choices(filterLearningCurve, {
+            choices: curveOptions,
+            removeItemButton: true,
+            placeholder: true,
+            placeholderValue: 'All Curves'
+        });
+    }
+
+    function renderTools(tools) {
+        const searchInput = searchTool.value.toLowerCase();
+        const categories = categoryChoices.getValue(true);
+        const pricings = pricingChoices.getValue(true);
+        const curves = curveChoices.getValue(true);
+        const sortValue = sortBy.value;
+
+        let filteredTools = tools.filter(tool => {
+            const nameMatch = tool.name.toLowerCase().includes(searchInput);
+            const categoryMatch = categories.length === 0 || categories.includes(tool.category);
+            const pricingMatch = pricings.length === 0 || pricings.includes(tool.pricing);
+            const curveMatch = curves.length === 0 || curves.includes(tool.curve);
+            return nameMatch && categoryMatch && pricingMatch && curveMatch;
+        });
+
+        if (sortValue === 'rating-desc') {
+            filteredTools.sort((a, b) => b.rating - a.rating);
+        }
+        
+        toolGrid.innerHTML = '';
+        if (filteredTools.length === 0) {
+            noResults.style.display = 'block';
+        } else {
+            noResults.style.display = 'none';
+            filteredTools.forEach(tool => {
+                const card = document.createElement('div');
+                card.className = 'tool-card bg-white p-6 rounded-lg shadow-md border border-gray-200 cursor-pointer';
+                card.onclick = () => showModal(tool.id, tools);
+                card.innerHTML = `
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-xl mb-1">${tool.name}</h3>
+                        <div class="font-bold text-teal-600 bg-teal-100 px-2 py-1 rounded-full text-sm">${tool.rating}/10</div>
+                    </div>
+                    <p class="text-sm font-medium text-gray-500 mb-2">${tool.category}</p>
+                    <p class="text-gray-600 text-sm">${tool.description.split('. ')[0]}.</p>
+                `;
+                toolGrid.appendChild(card);
+            });
+        }
+    }
+
+    window.showModal = (toolId, tools) => {
+        const tool = tools.find(t => t.id === toolId);
+        if (tool) {
+            modalTitle.innerHTML = `<a href="${tool.link}" target="_blank" rel="noopener noreferrer" class="hover:text-teal-700 hover:underline">${tool.name} ↗</a>`;
+            modalCategory.textContent = tool.category;
+            modalDescription.textContent = tool.description;
+            modalUser.textContent = tool.targetUser;
+            modalCurve.textContent = tool.curve;
+            modalPricing.textContent = tool.pricing;
+            modalCrud.textContent = tool.crudSupport;
+            modalRating.textContent = `${tool.rating}/10`;
+            modalAi.textContent = tool.aiCapabilities;
+            modalData.textContent = tool.dataHandling;
+            modal.classList.add('active');
+        }
+    }
+    
+    window.closeModal = () => {
+        modal.classList.remove('active');
+    };
+    
+    window.navigateToSection = (sectionId) => {
+        sections.forEach(s => s.classList.remove('active'));
+        document.getElementById(sectionId).classList.add('active');
+        
+        navLinks.forEach(l => l.classList.remove('active'));
+        const activeLink = document.querySelector(`.nav-link[data-section="${sectionId}"]`);
+        if (activeLink) {
+            activeLink.classList.add('active');
+        }
+        
+        mobileNav.value = sectionId;
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+    
+    function updateWorkflowContent(phase, workflowData) {
+        const data = workflowData[phase];
+        workflowTabs.forEach(tab => {
+            if (tab.dataset.phase === phase) {
+                tab.classList.add('text-teal-600', 'border-teal-600');
+                tab.classList.remove('text-gray-500', 'border-transparent');
+            } else {
+                tab.classList.remove('text-teal-600', 'border-teal-600');
+                tab.classList.add('text-gray-500', 'border-transparent');
+            }
+        });
+        
+        let contentHtml = `<div class="p-4 bg-gray-100 rounded-lg">
+            <h3 class="font-bold text-xl mb-2 text-gray-800">${data.title}</h3>
+            <p class="text-gray-600 mb-4">${data.description}</p>
+            <ul class="space-y-3">`;
+        data.steps.forEach(step => {
+            contentHtml += `<li class="flex items-start">
+                <span class="flex-shrink-0 h-5 w-5 rounded-full bg-teal-500 text-white flex items-center justify-center text-xs mr-3 mt-1">✓</span>
+                <div>
+                    <strong class="font-semibold">${step.name}</strong>
+                    <p class="text-gray-500 text-sm">${step.detail}</p>
+                </div>
+            </li>`;
+        });
+        contentHtml += `</ul></div>`;
+        workflowContent.innerHTML = contentHtml;
+    }
+    
+    function populateCompareSelectors(tools) {
+        const selectors = [compareTool1, compareTool2, compareTool3];
+        selectors.forEach((selector, index) => {
+            let options = '<option value="">Select Tool...</option>';
+            tools.forEach(tool => {
+                options += `<option value="${tool.id}">${tool.name}</option>`;
+            });
+            selector.innerHTML = options;
+        });
+        compareTool1.value = 'bubble';
+        compareTool2.value = 'softr';
+        compareTool3.value = 'glide';
+    }
+
+    function updateComparisonChart(tools) {
+        const selectedIds = [compareTool1.value, compareTool2.value, compareTool3.value].filter(Boolean);
+        const selectedTools = tools.filter(t => selectedIds.includes(t.id));
+
+        const data = {
+            labels: ['Ease of Use', 'AI Capability Depth', 'Scalability'],
+            datasets: selectedTools.map((tool, index) => {
+                const colors = [
+                    'rgba(13, 148, 136, 0.6)', // teal
+                    'rgba(59, 130, 246, 0.6)', // blue
+                    'rgba(249, 115, 22, 0.6)'  // orange
+                ];
+                const borderColors = [
+                    'rgba(13, 148, 136, 1)',
+                    'rgba(59, 130, 246, 1)',
+                    'rgba(249, 115, 22, 1)'
+                ];
+                return {
+                    label: tool.name,
+                    data: [tool.metrics.easeOfUse, tool.metrics.aiDepth, tool.metrics.scalability],
+                    backgroundColor: colors[index],
+                    borderColor: borderColors[index],
+                    borderWidth: 1
+                };
+            })
+        };
+        
+        if (comparisonChart) {
+            comparisonChart.destroy();
+        }
+
+        comparisonChart = new Chart(comparisonChartCanvas, {
+            type: 'bar',
+            data: data,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Tool Attribute Comparison (Scale 1-10)',
+                        font: { size: 16 }
+                    },
+                    tooltip: {
+                         callbacks: {
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                if (context.parsed.y !== null) {
+                                    label += context.parsed.y;
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 10,
+                        title: {
+                            display: true,
+                            text: 'Score'
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    async function init() {
+        const response = await fetch('data.json');
+        const appData = await response.json();
+
+        navigateToSection('home');
+        
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const sectionId = e.target.getAttribute('data-section');
+                navigateToSection(sectionId);
+            });
+        });
+
+        mobileNav.addEventListener('change', (e) => {
+            navigateToSection(e.target.value);
+        });
+        
+        searchTool.addEventListener('input', () => renderTools(appData.tools));
+        filterCategory.addEventListener('change', () => renderTools(appData.tools));
+        filterPricing.addEventListener('change', () => renderTools(appData.tools));
+        filterLearningCurve.addEventListener('change', () => renderTools(appData.tools));
+        sortBy.addEventListener('change', () => renderTools(appData.tools));
+        
+        workflowTabs.forEach(tab => {
+            tab.addEventListener('click', () => updateWorkflowContent(tab.dataset.phase, appData.workflow));
+        });
+
+        [compareTool1, compareTool2, compareTool3].forEach(selector => {
+            selector.addEventListener('change', () => updateComparisonChart(appData.tools));
+        });
+
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeModal();
+            }
+        });
+        
+        populateFilters(appData.tools);
+        renderTools(appData.tools);
+        updateWorkflowContent('1', appData.workflow);
+        populateCompareSelectors(appData.tools);
+        updateComparisonChart(appData.tools);
+    }
+    
+    init();
+});
+</script>
+
+</body>
+</html>
