@@ -1,364 +1,535 @@
 {
-    "tools": [
-      {
-        "id": "bubble",
-        "name": "Bubble",
-        "category": "Full-Stack App",
-        "pricing": "Freemium",
-        "curve": "Steep",
-        "link": "https://bubble.io",
-        "description": "Robust visual programming for UI, DB, logic; production-grade.",
-        "targetUser": "Founders, Startups",
-        "aiCapabilities": "Full page generation, smart suggestions, GPT/API hooks",
-        "crudSupport": "Yes",
-        "dataHandling": "Built-in DB + any API / SQL",
-        "metrics": { "easeOfUse": 4, "aiDepth": 9, "scalability": 9 },
-        "rating": 7.33
-      },
-      {
-        "id": "softr",
-        "name": "Softr",
-        "category": "Internal Tools & Data",
-        "pricing": "Freemium",
-        "curve": "Easy",
-        "link": "https://www.softr.io",
-        "description": "Turn Airtable/Sheets into portals and dashboards in minutes.",
-        "targetUser": "Ops, SMBs",
-        "aiCapabilities": "Prompt-to-app builder",
-        "crudSupport": "Yes",
-        "dataHandling": "Airtable, Sheets, Notion, SQL, Supabase",
-        "metrics": { "easeOfUse": 9, "aiDepth": 6, "scalability": 7 },
-        "rating": 7.33
-      },
-      {
-        "id": "glide",
-        "name": "Glide",
-        "category": "Internal Tools & Data",
-        "pricing": "Freemium",
-        "curve": "Easy",
-        "link": "https://www.glideapps.com",
-        "description": "Mobile-first apps from Sheets or Glide Tables (25 M rows cap).",
-        "targetUser": "Field teams, Beginners",
-        "aiCapabilities": "AI column types, vision, TTS",
-        "crudSupport": "Yes",
-        "dataHandling": "Sheets, Excel, Airtable, BigQuery, SQL",
-        "metrics": { "easeOfUse": 8, "aiDepth": 7, "scalability": 8 },
-        "rating": 7.67
-      },
-      {
-        "id": "webflow",
-        "name": "Webflow",
-        "category": "Website & LP Builder",
-        "pricing": "Freemium",
-        "curve": "Steep",
-        "link": "https://webflow.com",
-        "description": "Pixel-perfect visual CSS, strong CMS, Relume AI integration.",
-        "targetUser": "Designers, Agencies",
-        "aiCapabilities": "AI sitemap / wireframe import, CMS AI copy",
-        "crudSupport": "Yes (CMS)",
-        "dataHandling": "Webflow CMS",
-        "metrics": { "easeOfUse": 5, "aiDepth": 4, "scalability": 8 },
-        "rating": 5.67
-      },
-      {
-        "id": "framer",
-        "name": "Framer",
-        "category": "Website & LP Builder",
-        "pricing": "Freemium",
-        "curve": "Moderate",
-        "link": "https://www.framer.com",
-        "description": "High-end design freedom, fast publish, CMS light.",
-        "targetUser": "Creatives, Startups",
-        "aiCapabilities": "Multilingual copy & rewrite",
-        "crudSupport": "Partial (CMS)",
-        "dataHandling": "Framer CMS",
-        "metrics": { "easeOfUse": 7, "aiDepth": 4, "scalability": 7 },
-        "rating": 6
-      },
-      {
-        "id": "wix",
-        "name": "Wix",
-        "category": "General Purpose",
-        "pricing": "Freemium",
-        "curve": "Easy",
-        "link": "https://www.wix.com",
-        "description": "ADI one-click site gen, massive app market, fastest start.",
-        "targetUser": "SMBs, Freelancers",
-        "aiCapabilities": "ADI, AI text/image, responsive AI",
-        "crudSupport": "Yes",
-        "dataHandling": "Wix CMS/e-com/DB",
-        "metrics": { "easeOfUse": 9, "aiDepth": 8, "scalability": 6 },
-        "rating": 7.67
-      },
-      {
-        "id": "zapier",
-        "name": "Zapier",
-        "category": "Automation & Workflow",
-        "pricing": "Freemium",
-        "curve": "Easy",
-        "link": "https://zapier.com",
-        "description": "Connect 7 000+ apps with no-code zaps.",
-        "targetUser": "Any team",
-        "aiCapabilities": "AI task suggestions, GPT actions",
-        "crudSupport": "Partial (via integrations)",
-        "dataHandling": "Data pass-through",
-        "metrics": { "easeOfUse": 9, "aiDepth": 5, "scalability": 9 },
-        "rating": 7.67
-      },
-      {
-        "id": "make",
-        "name": "Make.com",
-        "category": "Automation & Workflow",
-        "pricing": "Freemium",
-        "curve": "Moderate",
-        "link": "https://www.make.com",
-        "description": "Visual drag-diagram automations with deep data handling.",
-        "targetUser": "Tech marketers, Ops",
-        "aiCapabilities": "GPT modules, sentiment analysis, branching logic",
-        "crudSupport": "Partial",
-        "dataHandling": "Advanced arrays & transforms",
-        "metrics": { "easeOfUse": 7, "aiDepth": 6, "scalability": 9 },
-        "rating": 7.33
-      },
-      {
-        "id": "retool",
-        "name": "Retool",
-        "category": "Internal Tools & Data",
-        "pricing": "Freemium",
-        "curve": "Moderate",
-        "link": "https://retool.com",
-        "description": "Low-code builder for admin panels; connect any DB/API.",
-        "targetUser": "Devs, Data teams",
-        "aiCapabilities": "Natural-language UI, GPT blocks",
-        "crudSupport": "Yes",
-        "dataHandling": "Any SQL/NoSQL/API, built-in DB",
-        "metrics": { "easeOfUse": 5, "aiDepth": 8, "scalability": 9 },
-        "rating": 7.33
-      },
-      {
-        "id": "v0",
-        "name": "v0.dev",
-        "category": "Prototyping & UI/UX",
-        "pricing": "Freemium",
-        "curve": "Moderate",
-        "link": "https://v0.dev",
-        "description": "Prompt-to-React generator from Vercel; outputs shadcn-styled code you can paste into Next.js.",
-        "targetUser": "Frontend devs, Designers who code",
-        "aiCapabilities": "Generates full React sections/components from text prompts",
-        "crudSupport": "N/A (UI only)",
-        "dataHandling": "Exports raw code; integrate with any backend",
-        "metrics": { "easeOfUse": 6, "aiDepth": 8, "scalability": 7 },
-        "rating": 7
-      },
-      {
-        "id": "relume",
-        "name": "Relume.io",
-        "category": "Prototyping & UI/UX",
-        "pricing": "Freemium",
-        "curve": "Moderate",
-        "link": "https://relume.io",
-        "description": "AI sitemap & wireframe generator that exports directly to Webflow or Figma.",
-        "targetUser": "UX designers, Webflow users",
-        "aiCapabilities": "Prompt-to-site map, block library suggestions",
-        "crudSupport": "N/A",
-        "dataHandling": "Design hand-off; relies on Webflow/Figma CMS later",
-        "metrics": { "easeOfUse": 7, "aiDepth": 7, "scalability": 3 },
-        "rating": 5.67
-      },
-      {
-        "id": "famous",
-        "name": "Famous AI",
-        "category": "Website & LP Builder",
-        "pricing": "Freemium",
-        "curve": "Easy",
-        "link": "https://famous.ai",
-        "description": "Generates trendy animated landing pages from a brief prompt; focused on marketing aesthetics.",
-        "targetUser": "Growth hackers, Indie founders",
-        "aiCapabilities": "Full section generation, motion presets, copy AI",
-        "crudSupport": "No (static pages)",
-        "dataHandling": "Exports HTML/CSS or hosts for you",
-        "metrics": { "easeOfUse": 8, "aiDepth": 7, "scalability": 5 },
-        "rating": 6.67
-      },
-      {
-        "id": "adalo",
-        "name": "Adalo",
-        "category": "Full-Stack App",
-        "pricing": "Freemium",
-        "curve": "Moderate",
-        "link": "https://www.adalo.com",
-        "description": "Drag-and-drop native mobile app builder, publishes to iOS/Android.",
-        "targetUser": "Entrepreneurs, Mobile MVPs",
-        "aiCapabilities": "None (classic builder)",
-        "crudSupport": "Yes",
-        "dataHandling": "Built-in DB",
-        "metrics": { "easeOfUse": 7, "aiDepth": 2, "scalability": 6 },
-        "rating": 5
-      },
-      {
-        "id": "bardeen",
-        "name": "Bardeen",
-        "category": "Automation & Workflow",
-        "pricing": "Freemium",
-        "curve": "Easy",
-        "link": "https://www.bardeen.ai",
-        "description": "Browser extension to scrape & automate web tasks with one click.",
-        "targetUser": "Sales, Recruiters",
-        "aiCapabilities": "Suggest playbooks, smart scraping selectors",
-        "crudSupport": "N/A",
-        "dataHandling": "Moves data to Sheets, Notion, etc.",
-        "metrics": { "easeOfUse": 9, "aiDepth": 4, "scalability": 5 },
-        "rating": 6
-      },
-      {
-        "id": "durable",
-        "name": "Durable",
-        "category": "General Purpose",
-        "pricing": "Subscription",
-        "curve": "Easy",
-        "link": "https://durable.co",
-        "description": "30-sec AI business site + baked-in CRM & invoicing.",
-        "targetUser": "Solopreneurs",
-        "aiCapabilities": "Full site, brand name, marketing copy",
-        "crudSupport": "Partial (CRM)",
-        "dataHandling": "Simple integrated DB",
-        "metrics": { "easeOfUse": 10, "aiDepth": 9, "scalability": 4 },
-        "rating": 7.67
-      },
-      {
-        "id": "replit",
-        "name": "Replit",
-        "category": "Full-Stack App",
-        "pricing": "Freemium",
-        "curve": "Steep",
-        "link": "https://replit.com",
-        "description": "Cloud IDE with Ghostwriter AI; bridges no-code & code.",
-        "targetUser": "Learners, Devs",
-        "aiCapabilities": "Code generation, explanation, deploy wizard",
-        "crudSupport": "Yes (via code)",
-        "dataHandling": "Any via code",
-        "metrics": { "easeOfUse": 4, "aiDepth": 10, "scalability": 9 },
-        "rating": 7.67
-      },
-      {
-        "id": "squarespace",
-        "name": "Squarespace",
-        "category": "General Purpose",
-        "pricing": "Subscription",
-        "curve": "Easy",
-        "link": "https://www.squarespace.com",
-        "description": "Polished templates, top design quality, minimal AI.",
-        "targetUser": "Creatives, SMB e-com",
-        "aiCapabilities": "Auto-layout hints, basic copy AI",
-        "crudSupport": "Partial",
-        "dataHandling": "Built-in CMS & commerce",
-        "metrics": { "easeOfUse": 9, "aiDepth": 3, "scalability": 6 },
-        "rating": 6
-      },
-      {
-        "id": "10web",
-        "name": "10web.io",
-        "category": "General Purpose",
-        "pricing": "Subscription",
-        "curve": "Easy",
-        "link": "https://10web.io",
-        "description": "AI-generated WordPress sites + Elementor, clone from any URL.",
-        "targetUser": "Agencies, Bloggers",
-        "aiCapabilities": "Text-to-site, AI design tweaks, clone",
-        "crudSupport": "Yes",
-        "dataHandling": "WordPress DB on Google Cloud",
-        "metrics": { "easeOfUse": 8, "aiDepth": 8, "scalability": 7 },
-        "rating": 7.67
-      },
-      {
-        "id": "lovable",
-        "name": "Lovable.dev",
-        "category": "Full-Stack App Builder",
-        "pricing": "Freemium",
-        "curve": "Moderate to Steep",
-        "link": "https://lovable.dev",
-        "description": "An AI-first platform that lets you build full-stack web apps (UI, auth, DB, backend logic) by chatting. You get editable React + backend code and GitHub integration.",
-        "targetUser": "Non‑devs & devs wanting rapid MVPs",
-        "aiCapabilities": "Prompt-to-app generation (UI, DB schema, auth, Supabase), AI debugging, GPT‑function calling, GitHub export",
-        "crudSupport": "Yes (end‑to‑end CRUD)",
-        "dataHandling": "Supabase integration (DB, auth, edge functions), deployable backend",
-        "metrics": { "easeOfUse": 6, "aiDepth": 9, "scalability": 8 },
-        "rating": 7.67
-      },
-      {
-        "id": "pagelume",
-        "name": "Pagelume",
-        "category": "Basic Site Generator",
-        "pricing": "Freemium (MVP)",
-        "curve": "Easy",
-        "link": "https://pagelume.com",
-        "description": "A lightweight AI website builder that compiles a few modular components based on user-uploaded content and global style settings. Users can preview, download code, or publish under a subdomain.",
-        "targetUser": "Non-devs, Hackathon users, MVP builders",
-        "aiCapabilities": "Text/image-to-component matching, style guide enforcement, simple layout suggestions (via prompt).",
-        "crudSupport": "Not yet",
-        "dataHandling": "Injects content/images into static HTML via JSON mapping; no backend/data forms yet.",
-        "metrics": { "easeOfUse": 8, "aiDepth": 5, "scalability": 4 },
-        "rating": 5.67
-      }
-    ],
-    "workflow": {
-        "1": { 
-            "title": "🎯 Idea Stage: From Vision to Requirements",
-            "description": "This initial phase focuses on validating your idea and defining clear objectives. Before building, list the key things a user should be able to do to guide your choice of tools and features.",
-            "steps": [
-                { "name": "Validate Feasibility", "detail": "Ask yourself if the idea is doable with no-code tools. An app to track team vacations is perfect; a next-gen 3D multiplayer game is not." },
-                { "name": "Lay Down Objectives", "detail": "List the primary goals. E.g., \"Users can sign up, create a profile, and post articles.\" This list becomes your guide." },
-                { "name": "Describe in Detail", "detail": "Write a short description or sketch the pages. This clarifies your vision and is useful for AI-powered builder prompts." }
-            ]
-        },
-        "2": {
-            "title": "🎛 Tool Choice: Finding the Right Platform",
-            "description": "With a clear idea, choose your platform. This involves weighing factors like ease of use, design control, features, cost, and community support to find the best fit for your project.",
-            "steps": [
-                { "name": "Assess Your Needs", "detail": "Do you need a design-heavy site (use Framer/Webflow) or a data-heavy app (use Bubble/Softr)? Do you need user logins or a database?" },
-                { "name": "Compare Learning Curve vs. Power", "detail": "Easy tools might offer less customization. Powerful tools like Bubble have a steeper learning curve but more flexibility." },
-                { "name": "Evaluate Free Tiers & Cost", "detail": "Ensure the free plan is sufficient for building and testing. Check paid plan costs for when you launch." },
-                { "name": "Check for Community & Support", "detail": "An active user forum or good tutorials are crucial for when you inevitably get stuck. This can make or break a project." }
-            ]
-        },
-        "3": { 
-            "title": "🔨 Build: Creating Your App",
-            "description": "This is the hands-on phase of bringing your app to life. Start with a template if possible, build one feature at a time, and leverage the platform's visual tools and AI assistants.",
-            "steps": [
-                { "name": "Start with a Template", "detail": "It's much easier to modify an existing app or template than to start from a blank canvas. This saves time on basic setup." },
-                { "name": "Build in Small Iterations", "detail": "Get one core feature working first (e.g., creating and viewing an item). Then add the next one. This keeps you motivated and organized." },
-                { "name": "Leverage AI Assistants", "detail": "Use built-in AI to generate page layouts, write placeholder text, or suggest logic. Think of it as your assistant, not the final builder." },
-                { "name": "Stay Organized & Test Often", "detail": "Name your elements clearly (e.g., \"Email Input\" not \"Textbox 27\") and constantly preview your app to catch bugs early." }
-            ]
-        },
-        "4": {
-            "title": "🔁 Iterate and Test: Improve Your Creation",
-            "description": "No app is perfect on the first try. This phase involves testing your app, gathering feedback from others, and making improvements to fix bugs and enhance the user experience.",
-            "steps": [
-                { "name": "Get External Feedback", "detail": "A fresh pair of eyes is invaluable. Have a few people try your app and note where they get confused or frustrated." },
-                { "name": "Identify & Fix Pain Points", "detail": "Categorize feedback into UI/UX issues, bugs, or missing features. Tackle them one by one." },
-                { "name": "Adopt Iteration Cycles", "detail": "Make a few changes, test thoroughly to confirm the fix, and ensure you haven't broken anything else. Repeat." },
-                { "name": "Know When to Stop", "detail": "Aim for \"good enough\" for a first launch. Once the app meets your core objectives, you can put other ideas on a wishlist for later." }
-            ]
-        },
-        "5": { 
-            "title": "🧠 Ask Devs (Politely): When You Need Help",
-            "description": "While the goal is no-code, sometimes a tiny bit of expert advice or a code snippet can solve a problem that a tool can't handle. Approach developers as collaborators for specific, small requests.",
-            "steps": [
-                { "name": "Be Specific", "detail": "Don't ask \"Can you help make my app better?\" Ask, \"I need to connect to this specific API; can you help me configure the call?\"" },
-                { "name": "Use Developer Help Strategically", "detail": "Great for custom integrations, complex calculations, or a quick security review. Use them to fill small gaps." },
-                { "name": "Learn from Them", "detail": "If a developer helps, ask them to explain what they did. This is a great way to gradually learn low-code concepts." }
-            ]
-        },
-        "6": {
-            "title": "🚀 Launch: Deploying and Sharing Your App",
-            "description": "The final phase is releasing your creation. No-code platforms make this easy, but it's still important to do final checks on different devices and have a plan for collecting feedback.",
-            "steps": [
-                { "name": "Use the \"Publish\" Button", "detail": "Most platforms deploy your app with one click. Deploy to a live URL and test it in an incognito window." },
-                { "name": "Final Cross-Device Check", "detail": "Open the app on a phone, tablet, and desktop. Test in different browsers (Chrome, Safari) to ensure nothing is broken." },
-                { "name": "Do a Soft Launch", "detail": "Release it quietly to a small group of users first. This acts as a final live test before a wider announcement." },
-                { "name": "Collect Feedback Post-Launch", "detail": "Provide an easy way for users to report bugs or give feedback. The agility of no-code means you can often fix issues in minutes." }
-            ]
-        }
+  "tools": [
+    {
+      "id": "bubble",
+      "name": "Bubble",
+      "category": "Full-Stack App",
+      "pricing": "Freemium",
+      "curve": "Steep",
+      "link": "https://bubble.io",
+      "description": "Robust visual programming for UI, DB, logic; production-grade. Recently added Bubble AI to generate full app prototypes from a prompt.",
+      "targetUser": "Founders, Startups",
+      "aiCapabilities": "Full app generation from text (Bubble AI) [oai_citation:34‡bubble.io](https://bubble.io/blog/how-to-build-an-app-with-ai/#:~:text=Whether%20you%E2%80%99re%20building%20an%20internal,to%20grow%20from%20day%20one), AI-assisted logic suggestions",
+      "crudSupport": "Yes",
+      "dataHandling": "Built-in DB + any API/SQL integrations",
+      "metrics": { "easeOfUse": 4, "aiDepth": 9, "scalability": 9 },
+      "rating": 7.33
+    },
+    {
+      "id": "softr",
+      "name": "Softr",
+      "category": "Internal Tools & Data",
+      "pricing": "Freemium",
+      "curve": "Easy",
+      "link": "https://www.softr.io",
+      "description": "Turns Airtable/Google Sheets into web portals and apps in minutes.",
+      "targetUser": "Ops teams, SMBs",
+      "aiCapabilities": "Prompt-to-app generator (AI builds app screens from a description) [oai_citation:35‡softr.io](https://www.softr.io/blog/ai-app-generator#:~:text=,to%20meet%20common%20industry%20demands)",
+      "crudSupport": "Yes",
+      "dataHandling": "Airtable, Sheets, Notion, SQL, Supabase (built-in integrations)",
+      "metrics": { "easeOfUse": 9, "aiDepth": 6, "scalability": 7 },
+      "rating": 7.33
+    },
+    {
+      "id": "glide",
+      "name": "Glide",
+      "category": "Internal Tools & Data",
+      "pricing": "Freemium",
+      "curve": "Easy",
+      "link": "https://www.glideapps.com",
+      "description": "Mobile-first app builder from spreadsheets or Glide Tables (supports up to 25 million rows via BigQuery).",
+      "targetUser": "Field teams, Beginners",
+      "aiCapabilities": "AI Columns for vision (image to text) and text generation [oai_citation:36‡glideapps.com](https://www.glideapps.com/docs/ai#:~:text=Glide%20AI%20offers%20AI%20automation,text%2C%20extracting%20text%20from%20images) [oai_citation:37‡lowcode.agency](https://www.lowcode.agency/blog/benefits-glide-ai-powered-apps#:~:text=6%20Compelling%20Reasons%20to%20Build,user%20interaction%20and%20data%20input), speech-to-text processing",
+      "crudSupport": "Yes",
+      "dataHandling": "Google Sheets, Excel, Airtable, BigQuery, SQL (external data sources)",
+      "metrics": { "easeOfUse": 8, "aiDepth": 7, "scalability": 8 },
+      "rating": 7.67
+    },
+    {
+      "id": "webflow",
+      "name": "Webflow",
+      "category": "Website & LP Builder",
+      "pricing": "Freemium",
+      "curve": "Steep",
+      "link": "https://webflow.com",
+      "description": "Pixel-perfect visual CSS design tool with a powerful CMS. Integrates with Relume AI for sitemap/wireframe generation.",
+      "targetUser": "Designers, Agencies",
+      "aiCapabilities": "AI sitemap & wireframe import via Relume [oai_citation:38‡webflow.com](https://webflow.com/apps/detail/relume#:~:text=Create%20websites%20using%20the%20Relume,and%20import%20them%20into%20Webflow), AI text content suggestions",
+      "crudSupport": "Yes (via CMS collections)",
+      "dataHandling": "Webflow CMS for structured content",
+      "metrics": { "easeOfUse": 5, "aiDepth": 4, "scalability": 8 },
+      "rating": 5.67
+    },
+    {
+      "id": "framer",
+      "name": "Framer",
+      "category": "Website & LP Builder",
+      "pricing": "Freemium",
+      "curve": "Moderate",
+      "link": "https://www.framer.com",
+      "description": "High-end design freedom for websites with instant publishing and a lightweight CMS.",
+      "targetUser": "Creatives, Startups",
+      "aiCapabilities": "Multilingual copywriting & text rewrite (AI assistant for text content)",
+      "crudSupport": "Partial (CMS collections only)",
+      "dataHandling": "Framer CMS for content (no external DB)",
+      "metrics": { "easeOfUse": 7, "aiDepth": 4, "scalability": 7 },
+      "rating": 6.0
+    },
+    {
+      "id": "wix",
+      "name": "Wix",
+      "category": "General Purpose",
+      "pricing": "Freemium",
+      "curve": "Easy",
+      "link": "https://www.wix.com",
+      "description": "Mass-market website builder with hundreds of templates and a huge app market.",
+      "targetUser": "SMBs, Freelancers",
+      "aiCapabilities": "ADI (Artificial Design Intelligence) one-click site generation, plus AI text and image creation, and layout suggestions",
+      "crudSupport": "Yes (Wix CMS and database collections)",
+      "dataHandling": "Wix CMS/e-commerce database, custom database collections",
+      "metrics": { "easeOfUse": 9, "aiDepth": 8, "scalability": 6 },
+      "rating": 7.67
+    },
+    {
+      "id": "zapier",
+      "name": "Zapier",
+      "category": "Automation & Workflow",
+      "pricing": "Freemium",
+      "curve": "Easy",
+      "link": "https://zapier.com",
+      "description": "Automation platform connecting 7,000+ apps with no-code workflows (“Zaps”).",
+      "targetUser": "Any team or individual",
+      "aiCapabilities": "AI-driven workflow suggestions and GPT-4 actions for text generation in Zaps [oai_citation:39‡zapier.com](https://zapier.com/#:~:text=Zapier%3A%20Automate%20AI%20Workflows%2C%20Agents%2C,Trusted%20by%203%20million%2B%20businesses)",
+      "crudSupport": "Partial (via integrations; can create/update records in other apps)",
+      "dataHandling": "Data passes through via connected apps (no native DB, but supports storage by Zapier for simple data)",
+      "metrics": { "easeOfUse": 9, "aiDepth": 5, "scalability": 9 },
+      "rating": 7.67
+    },
+    {
+      "id": "make",
+      "name": "Make.com",
+      "category": "Automation & Workflow",
+      "pricing": "Freemium",
+      "curve": "Moderate",
+      "link": "https://www.make.com",
+      "description": "Visual drag-and-drop workflow automation (formerly Integromat) with advanced data handling.",
+      "targetUser": "Tech-savvy ops, Developers",
+      "aiCapabilities": "GPT modules for text generation, sentiment analysis module, and conditional logic for AI decisions",
+      "crudSupport": "Partial (via modules/APIs to other systems)",
+      "dataHandling": "Advanced array handling, JSON transforms, iterators in workflows",
+      "metrics": { "easeOfUse": 7, "aiDepth": 6, "scalability": 9 },
+      "rating": 7.33
+    },
+    {
+      "id": "retool",
+      "name": "Retool",
+      "category": "Internal Tools & Data",
+      "pricing": "Freemium",
+      "curve": "Moderate",
+      "link": "https://retool.com",
+      "description": "Low-code builder for internal admin panels; connect to any database or API and drag-drop UI components.",
+      "targetUser": "Developers, Data teams",
+      "aiCapabilities": "Natural-language app design (describe UI to create forms), GPT-powered Smart Blocks for data processing [oai_citation:40‡retool.com](https://retool.com/blog/gpt4-in-retool#:~:text=With%20the%20new%20Smart%20Block%2C,help%20from%20OpenAI%27s%20GPT)",
+      "crudSupport": "Yes",
+      "dataHandling": "Any SQL/NoSQL database, REST APIs, plus a built-in temporary DB for quick start",
+      "metrics": { "easeOfUse": 5, "aiDepth": 8, "scalability": 9 },
+      "rating": 7.33
+    },
+    {
+      "id": "v0",
+      "name": "v0.dev",
+      "category": "Prototyping & UI/UX",
+      "pricing": "Freemium",
+      "curve": "Moderate",
+      "link": "https://v0.dev",
+      "description": "Prompt-to-React UI generator by Vercel Labs; outputs Shadcn/UI components you can integrate into Next.js.",
+      "targetUser": "Frontend devs, Designers who code",
+      "aiCapabilities": "Generates React components and pages from text prompts (supports Tailwind CSS and various frameworks) [oai_citation:41‡annjose.com](https://annjose.com/post/v0-dev-firsthand/#:~:text=Vercel%20v0.dev%3A%20A%20hands,CSS%2C%20and%20shadcn%20UI%20components) [oai_citation:42‡v0.dev](https://v0.dev/docs#:~:text=v0%20Documentation%20UI%20Generation%20Blocks,the%20code%20for%20these)",
+      "crudSupport": "N/A (UI code only, no backend)",
+      "dataHandling": "Exports code for any backend integration (developer adds backend separately)",
+      "metrics": { "easeOfUse": 6, "aiDepth": 8, "scalability": 7 },
+      "rating": 7.0
+    },
+    {
+      "id": "relume",
+      "name": "Relume.io",
+      "category": "Prototyping & UI/UX",
+      "pricing": "Freemium",
+      "curve": "Moderate",
+      "link": "https://relume.io",
+      "description": "AI-assisted sitemap & wireframe generator that exports layouts to Webflow or Figma.",
+      "targetUser": "UX designers, Webflow users",
+      "aiCapabilities": "Prompt-to-sitemap and wireframe generation; suggests components from Relume library",
+      "crudSupport": "N/A (design-only, no dynamic data handling by itself)",
+      "dataHandling": "Design hand-off to Webflow/Figma; content managed in those platforms afterwards",
+      "metrics": { "easeOfUse": 7, "aiDepth": 7, "scalability": 3 },
+      "rating": 5.67
+    },
+    {
+      "id": "famous",
+      "name": "Famous AI",
+      "category": "Full-Stack App",
+      "pricing": "Subscription",
+      "curve": "Easy",
+      "link": "https://famous.ai",
+      "description": "Generates stylish, animated web apps from a brief prompt – including interactive front-ends and a Supabase backend in minutes.",
+      "targetUser": "Indie founders, Growth hackers",
+      "aiCapabilities": "Full app generation (UI + backend) from text [oai_citation:43‡famous.ai](http://famous.ai#:~:text=3) [oai_citation:44‡famous.ai](http://famous.ai#:~:text=This%20isn%27t%20a%20toy), with design themes and AI-written copy",
+      "crudSupport": "Yes (includes auth, database CRUD via generated backend) [oai_citation:45‡famous.ai](http://famous.ai#:~:text=3)",
+      "dataHandling": "Exports the full codebase (React/Next.js + Node/Supabase) [oai_citation:46‡famous.ai](http://famous.ai#:~:text=Complete%20control) or hosts it for you; no platform lock-in",
+      "metrics": { "easeOfUse": 8, "aiDepth": 7, "scalability": 5 },
+      "rating": 6.67
+    },
+    {
+      "id": "adalo",
+      "name": "Adalo",
+      "category": "Full-Stack App",
+      "pricing": "Freemium",
+      "curve": "Moderate",
+      "link": "https://www.adalo.com",
+      "description": "Drag-and-drop builder for native mobile apps (iOS/Android) and web; great for MVPs and simple apps.",
+      "targetUser": "Entrepreneurs, Mobile app MVPs",
+      "aiCapabilities": "None (focuses on standard no-code building; AI can be used via external plugins/API only)",
+      "crudSupport": "Yes",
+      "dataHandling": "Built-in database or external collections (APIs, Airtable, etc.)",
+      "metrics": { "easeOfUse": 7, "aiDepth": 2, "scalability": 6 },
+      "rating": 5.0
+    },
+    {
+      "id": "bardeen",
+      "name": "Bardeen",
+      "category": "Automation & Workflow",
+      "pricing": "Freemium",
+      "curve": "Easy",
+      "link": "https://www.bardeen.ai",
+      "description": "Browser extension to automate web tasks and scrape data with one click or custom flows.",
+      "targetUser": "Sales reps, Recruiters, Researchers",
+      "aiCapabilities": "AI suggests automation playbooks and generates smart selectors for scraping [oai_citation:47‡bardeen.ai](https://www.bardeen.ai/ai#:~:text=Meet%20the%20AI%20automation%20assistant,AI%20powered%20Smart%20suggestions%20Popup)",
+      "crudSupport": "N/A (not an app builder, used for automation tasks)",
+      "dataHandling": "Moves data between web apps (to Sheets, Notion, etc.) as configured",
+      "metrics": { "easeOfUse": 9, "aiDepth": 4, "scalability": 5 },
+      "rating": 6.0
+    },
+    {
+      "id": "durable",
+      "name": "Durable",
+      "category": "General Purpose",
+      "pricing": "Subscription",
+      "curve": "Easy",
+      "link": "https://durable.co",
+      "description": "AI-powered 30-second business website builder with built-in CRM & invoicing dashboard.",
+      "targetUser": "Solopreneurs, Micro-businesses",
+      "aiCapabilities": "Full website generation (text, images, site structure) from a prompt, AI business name and branding suggestions [oai_citation:48‡durable.co](https://durable.co/#:~:text=Generate%20a%20website%20in%2030,tools%20to%20grow%20your)",
+      "crudSupport": "Partial (includes simple CRM for leads and invoice management)",
+      "dataHandling": "Integrated database for CRM and site content; not extensible to external databases",
+      "metrics": { "easeOfUse": 10, "aiDepth": 9, "scalability": 4 },
+      "rating": 7.67
+    },
+    {
+      "id": "replit",
+      "name": "Replit",
+      "category": "Full-Stack App",
+      "pricing": "Freemium",
+      "curve": "Steep",
+      "link": "https://replit.com",
+      "description": "Online IDE that can host full-stack apps. Ghostwriter AI pair-programming assists with code and explains it.",
+      "targetUser": "Learners, Professional developers",
+      "aiCapabilities": "AI code generation, autocompletion, code explanation, and a deployment wizard for building apps [oai_citation:49‡adalo.com](https://www.adalo.com/posts/the-top-7-ai-powered-app-builders-of-2024#:~:text=all%20the%20technologies%20that%20make,including%20AI)",
+      "crudSupport": "Yes (via coding; Replit provides DB and you can use any database through code)",
+      "dataHandling": "Any via code (built-in Replit KV database for simple storage, or external DBs by writing code)",
+      "metrics": { "easeOfUse": 4, "aiDepth": 10, "scalability": 9 },
+      "rating": 7.67
+    },
+    {
+      "id": "squarespace",
+      "name": "Squarespace",
+      "category": "General Purpose",
+      "pricing": "Subscription",
+      "curve": "Easy",
+      "link": "https://www.squarespace.com",
+      "description": "Polished website builder known for beautiful templates and an all-in-one platform (hosting, domains, e-commerce).",
+      "targetUser": "Design-conscious SMBs, Bloggers, E-commerce",
+      "aiCapabilities": "Auto-layout tweaks, basic AI text generation for site copy",
+      "crudSupport": "Partial (built-in CMS and e-commerce product management, but no custom database)",
+      "dataHandling": "Built-in content management and store inventory; no external DB connections",
+      "metrics": { "easeOfUse": 9, "aiDepth": 3, "scalability": 6 },
+      "rating": 6.0
+    },
+    {
+      "id": "10web",
+      "name": "10Web.io",
+      "category": "General Purpose",
+      "pricing": "Subscription",
+      "curve": "Easy",
+      "link": "https://10web.io",
+      "description": "AI-powered WordPress platform that generates sites (using Elementor) from scratch or by cloning any reference site.",
+      "targetUser": "Agencies, Bloggers on WordPress",
+      "aiCapabilities": "Text-to-website generation, AI-assisted content, and design tweaks; can clone existing sites with AI [oai_citation:50‡10web.io](https://10web.io/ai-website-builder/#:~:text=AI%20Website%20Builder%3A%20Create%20and,no%20coding%20required)",
+      "crudSupport": "Yes (WordPress CMS for content, plus any WP plugins for forms/e-commerce)",
+      "dataHandling": "Standard WordPress MySQL database on 10Web’s managed hosting (Google Cloud infrastructure) [oai_citation:51‡10web.io](https://10web.io/#:~:text=One%20AI%20platform%20to%20build%2C,website%20instantly%2C%20no%20technical%20hassle)",
+      "metrics": { "easeOfUse": 8, "aiDepth": 8, "scalability": 7 },
+      "rating": 7.67
+    },
+    {
+      "id": "lovable",
+      "name": "Lovable.dev",
+      "category": "Full-Stack App",
+      "pricing": "Freemium",
+      "curve": "Moderate",
+      "link": "https://lovable.dev",
+      "description": "AI-first platform to build full-stack web apps (UI, auth, DB, backend logic) through a chat interface. Outputs editable React code and integrates with GitHub.",
+      "targetUser": "Non‑devs & devs wanting rapid MVPs",
+      "aiCapabilities": "Conversational prompt-to-app generation (UI layout, DB schema, authentication via Supabase) [oai_citation:52‡lovable.dev](https://lovable.dev/#:~:text=Build%20something%20Lovable), AI debugging and code explanations, GPT function calling",
+      "crudSupport": "Yes (end‑to‑end CRUD functionality generated as needed)",
+      "dataHandling": "Supabase (Postgres) integration for database and auth, serverless functions for logic, deployable backend",
+      "metrics": { "easeOfUse": 6, "aiDepth": 9, "scalability": 8 },
+      "rating": 7.67
+    },
+    {
+      "id": "pagelume",
+      "name": "Pagelume",
+      "category": "Basic Site Generator",
+      "pricing": "Freemium (MVP)",
+      "curve": "Easy",
+      "link": "https://pagelume.com",
+      "description": "Lightweight AI website builder that assembles a one-page site from user-provided text and images plus global style settings.",
+      "targetUser": "Hackathoners, Non-devs needing quick sites",
+      "aiCapabilities": "Text/Image-to-component matching, automatic style guide enforcement, simple layout suggestion based on prompt.",
+      "crudSupport": "Not yet (no form handling or logged-in user features as of now)",
+      "dataHandling": "Generates static HTML/CSS with user content mapped via JSON; no database or dynamic data support yet.",
+      "metrics": { "easeOfUse": 8, "aiDepth": 5, "scalability": 4 },
+      "rating": 5.67
+    },
+    {
+      "id": "powerapps",
+      "name": "Microsoft Power Apps",
+      "category": "Internal Tools & Data",
+      "pricing": "Subscription",
+      "curve": "Moderate",
+      "link": "https://powerapps.microsoft.com",
+      "description": "Low-code app builder for businesses as part of Microsoft Power Platform. Ideal for forms, workflows, and dashboards with Microsoft ecosystem integration.",
+      "targetUser": "Enterprise users, Citizen developers (Microsoft 365 admins, etc.)",
+      "aiCapabilities": "Copilot in Power Apps allows app creation and editing via conversation [oai_citation:53‡learn.microsoft.com](https://learn.microsoft.com/en-us/power-apps/maker/canvas-apps/ai-overview#:~:text=Microsoft%20learn,having%20a%20conversation%20with%20Copilot) (describe an app and it generates screens, data tables, and flows). Also suggests formulas and automations with AI.",
+      "crudSupport": "Yes",
+      "dataHandling": "Connects to Dataverse (native DB), SharePoint, SQL, and hundreds of connectors. Data is managed via these connections or the built-in Dataverse.",
+      "metrics": { "easeOfUse": 6, "aiDepth": 7, "scalability": 9 },
+      "rating": 7.33
+    },
+    {
+      "id": "appsheet",
+      "name": "Google AppSheet",
+      "category": "Internal Tools & Data",
+      "pricing": "Freemium",
+      "curve": "Moderate",
+      "link": "https://about.appsheet.com",
+      "description": "No-code app builder for Google Workspace and more. Automatically creates mobile/web apps from spreadsheets and databases.",
+      "targetUser": "Operations teams, Google Workspace users",
+      "aiCapabilities": "Duet AI integration: create app UI and tables by describing your requirements [oai_citation:54‡medium.com](https://medium.com/qodea/the-democratisation-of-app-development-with-duet-ai-for-appsheet-7bdfd024d833#:~:text=The%20democratisation%20of%20app%20development,get%20an%20initial%20application%20structure). AI can also assist with generating formulas and suggesting workflows.",
+      "crudSupport": "Yes",
+      "dataHandling": "Google Sheets, Excel, Cloud SQL, and other data via connectors. AppSheet manages data through these sources (no separate DB needed).",
+      "metrics": { "easeOfUse": 8, "aiDepth": 7, "scalability": 8 },
+      "rating": 7.67
+    },
+    {
+      "id": "airtable",
+      "name": "Airtable (AI Cobuilder)",
+      "category": "Internal Tools & Data",
+      "pricing": "Freemium",
+      "curve": "Easy",
+      "link": "https://airtable.com",
+      "description": "Spreadsheet-database hybrid with a new AI Cobuilder that can generate bases and interfaces from a prompt. Great for quick internal apps and project trackers.",
+      "targetUser": "Project managers, Ops, Teams already using Airtable",
+      "aiCapabilities": "Cobuilder creates tables, fields, and example records plus a starter Interface from a text description [oai_citation:55‡airtable.com](https://airtable.com/cobuilder#:~:text=Airtable%20Cobuilder%20uses%20AI%20and,app%20builder%20today%20for%20free).",
+      "crudSupport": "Yes",
+      "dataHandling": "Airtable’s own backend (stores data in bases). Can connect to external services via Airtable APIs and extensions.",
+      "metrics": { "easeOfUse": 9, "aiDepth": 5, "scalability": 7 },
+      "rating": 7.0
+    },
+    {
+      "id": "quickbase",
+      "name": "Quickbase",
+      "category": "Internal Tools & Data",
+      "pricing": "Subscription",
+      "curve": "Moderate",
+      "link": "https://quickbase.com",
+      "description": "Enterprise-grade no-code platform for building custom business applications with complex workflows and integrations.",
+      "targetUser": "Enterprise ops, IT solution builders",
+      "aiCapabilities": "AI Smart Builder can turn a Q&A or spreadsheet into a fully functional app (tables, relationships, forms, reports) [oai_citation:56‡helpv2.quickbase.com](https://helpv2.quickbase.com/hc/en-us/articles/19160932747924-Create-an-app-with-Quickbase-AI#:~:text=What%20is%20the%20AI%20Smart,Builder). Also offers AI to analyze data and generate insights.",
+      "crudSupport": "Yes",
+      "dataHandling": "Built-in Quickbase cloud database for app data, with robust integration pipelines (legacy systems, APIs, etc.). Supports importing Excel/Sheets data directly into apps. [oai_citation:57‡businesswire.com](https://www.businesswire.com/news/home/20250331916971/en/Quickbases-AI-Smart-Builder-Turns-Spreadsheets-into-Apps#:~:text=Using%20proprietary%20AI%2C%20Spreadsheet%20Import,without%20requiring%20any%20technical%20expertise)",
+      "metrics": { "easeOfUse": 6, "aiDepth": 8, "scalability": 9 },
+      "rating": 7.67
+    },
+    {
+      "id": "flutterflow",
+      "name": "FlutterFlow",
+      "category": "Full-Stack App",
+      "pricing": "Freemium",
+      "curve": "Moderate",
+      "link": "https://flutterflow.io",
+      "description": "Visual app builder for cross-platform Flutter apps. Design mobile/web interfaces and define backend logic with minimal code; export production-ready Flutter code.",
+      "targetUser": "Startup devs, Designers who want to generate Flutter code",
+      "aiCapabilities": "AI Gen features: Prompt-to-Component and Prompt-to-Page generation for UI [oai_citation:58‡flutterflow.io](https://www.flutterflow.io/ai#:~:text=Prompt%20to%20Component), Magic Cursor to apply style/function via text, and an AI Chatbot (Agent) builder [oai_citation:59‡flutterflow.io](https://www.flutterflow.io/ai#:~:text=AI%20Agent%20Builder).",
+      "crudSupport": "Yes",
+      "dataHandling": "Can connect to Firebase/Firestore, Supabase, or REST APIs for data. Has built-in Firestore DB integration for CRUD.",
+      "metrics": { "easeOfUse": 6, "aiDepth": 9, "scalability": 8 },
+      "rating": 7.67
+    },
+    {
+      "id": "createxyz",
+      "name": "Create",
+      "category": "Full-Stack App",
+      "pricing": "Freemium",
+      "curve": "Moderate",
+      "link": "https://create.xyz",
+      "description": "AI agent that turns your words into full-stack apps. Generates code for front-end, back-end, and integrates APIs based on a single prompt.",
+      "targetUser": "Indie makers, Hackers prototyping ideas",
+      "aiCapabilities": "GPT-4 powered generation of entire application code (UI + server). Supports adding GPT/LLM features and 40+ third-party integrations in the app [oai_citation:60‡create.xyz](https://www.create.xyz/#:~:text=Turn%20your%20words%20into%20sites%2C,40%2B%20integrations%20in%20an%20instant).",
+      "crudSupport": "Yes",
+      "dataHandling": "Generates its own backend (likely Node/Express or similar) and can integrate databases or APIs as instructed. Users can download or deploy the code.",
+      "metrics": { "easeOfUse": 7, "aiDepth": 9, "scalability": 8 },
+      "rating": 8.0
+    },
+    {
+      "id": "databutton",
+      "name": "Databutton",
+      "category": "Full-Stack App",
+      "pricing": "Freemium",
+      "curve": "Steep",
+      "link": "https://databutton.com",
+      "description": "AI-powered app builder where an AI agent (trained on software development) helps build your app. It can write and execute code (Python, etc.) to construct your app and deploy it automatically.",
+      "targetUser": "Developers and data scientists seeking rapid prototyping with AI",
+      "aiCapabilities": "AI dev agent that writes full-stack code (front-end & back-end) based on goals, can utilize tools (web browsing, Python execution) to iteratively build features [oai_citation:61‡youtube.com](https://www.youtube.com/watch?v=gwcJh2lqUuE#:~:text=YouTube%20www,YouTube%20content%20idea%20generator) [oai_citation:62‡youtube.com](https://www.youtube.com/watch?v=X9-j5Dp0V7w#:~:text=How%20To%20Use%20AI%20Agents,app%20vision%2C%20generating%20structured).",
+      "crudSupport": "Yes",
+      "dataHandling": "Allows Python code for data processing, integrates with databases or APIs via code. One-click deployment to AWS/Google Cloud is handled by the AI agent [oai_citation:63‡databutton.com](https://databutton.com/#:~:text=Deploy%20to%20your%20own%20domain,Apps).",
+      "metrics": { "easeOfUse": 5, "aiDepth": 10, "scalability": 9 },
+      "rating": 8.0
     }
+  ],
+  "workflow": {
+    "1": {
+      "title": "🎯 Idea Stage: From Vision to Requirements",
+      "description": "This initial phase focuses on validating your idea and defining clear objectives. Before building, list the key things a user should be able to do to guide your choice of tools and features.",
+      "steps": [
+        {
+          "name": "Validate Feasibility",
+          "detail": "Ask yourself if the idea is doable with no-code tools. An app to track team vacations is perfect; a next-gen 3D multiplayer game is not."
+        },
+        {
+          "name": "Lay Down Objectives",
+          "detail": "List the primary goals. E.g., \"Users can sign up, create a profile, and post articles.\" This list becomes your guide."
+        },
+        {
+          "name": "Describe in Detail",
+          "detail": "Write a short description or sketch the pages. This clarifies your vision and is useful for AI-powered builder prompts."
+        }
+      ]
+    },
+    "2": {
+      "title": "🎛 Tool Choice: Finding the Right Platform",
+      "description": "With a clear idea, choose your platform. This involves weighing factors like ease of use, design control, features, cost, and community support to find the best fit for your project.",
+      "steps": [
+        {
+          "name": "Assess Your Needs",
+          "detail": "Do you need a design-heavy site (use Framer/Webflow) or a data-heavy app (use Bubble/Softr)? Do you need user logins or a database?"
+        },
+        {
+          "name": "Compare Learning Curve vs. Power",
+          "detail": "Easy tools might offer less customization. Powerful tools like Bubble have a steeper learning curve but more flexibility."
+        },
+        {
+          "name": "Evaluate Free Tiers & Cost",
+          "detail": "Ensure the free plan is sufficient for building and testing. Check paid plan costs for when you launch."
+        },
+        {
+          "name": "Check for Community & Support",
+          "detail": "An active user forum or good tutorials are crucial for when you inevitably get stuck. This can make or break a project."
+        }
+      ]
+    },
+    "3": {
+      "title": "🔨 Build: Creating Your App",
+      "description": "This is the hands-on phase of bringing your app to life. Start with a template if possible, build one feature at a time, and leverage the platform's visual tools and AI assistants.",
+      "steps": [
+        {
+          "name": "Start with a Template",
+          "detail": "It's much easier to modify an existing app or template than to start from a blank canvas. This saves time on basic setup."
+        },
+        {
+          "name": "Build in Small Iterations",
+          "detail": "Get one core feature working first (e.g., creating and viewing an item). Then add the next one. This keeps you motivated and organized."
+        },
+        {
+          "name": "Leverage AI Assistants",
+          "detail": "Use built-in AI to generate page layouts, write placeholder text, or suggest logic. Think of it as your assistant, not the final builder."
+        },
+        {
+          "name": "Stay Organized & Test Often",
+          "detail": "Name your elements clearly (e.g., \"Email Input\" not \"Textbox 27\") and constantly preview your app to catch bugs early."
+        }
+      ]
+    },
+    "4": {
+      "title": "🔁 Iterate and Test: Improve Your Creation",
+      "description": "No app is perfect on the first try. This phase involves testing your app, gathering feedback from others, and making improvements to fix bugs and enhance the user experience.",
+      "steps": [
+        {
+          "name": "Get External Feedback",
+          "detail": "A fresh pair of eyes is invaluable. Have a few people try your app and note where they get confused or frustrated."
+        },
+        {
+          "name": "Identify & Fix Pain Points",
+          "detail": "Categorize feedback into UI/UX issues, bugs, or missing features. Tackle them one by one."
+        },
+        {
+          "name": "Adopt Iteration Cycles",
+          "detail": "Make a few changes, test thoroughly to confirm the fix, and ensure you haven't broken anything else. Repeat."
+        },
+        {
+          "name": "Know When to Stop",
+          "detail": "Aim for \"good enough\" for a first launch. Once the app meets your core objectives, you can put other ideas on a wishlist for later."
+        }
+      ]
+    },
+    "5": {
+      "title": "🧠 Ask Devs (Politely): When You Need Help",
+      "description": "While the goal is no-code, sometimes a tiny bit of expert advice or a code snippet can solve a problem that a tool can't handle. Approach developers as collaborators for specific, small requests.",
+      "steps": [
+        {
+          "name": "Be Specific",
+          "detail": "Don't ask \"Can you help make my app better?\" Ask, \"I need to connect to this specific API; can you help me configure the call?\""
+        },
+        {
+          "name": "Use Developer Help Strategically",
+          "detail": "Great for custom integrations, complex calculations, or a quick security review. Use them to fill small gaps."
+        },
+        {
+          "name": "Learn from Them",
+          "detail": "If a developer helps, ask them to explain what they did. This is a great way to gradually learn low-code concepts."
+        }
+      ]
+    },
+    "6": {
+      "title": "🚀 Launch: Deploying and Sharing Your App",
+      "description": "The final phase is releasing your creation. No-code platforms make this easy, but it's still important to do final checks on different devices and have a plan for collecting feedback.",
+      "steps": [
+        {
+          "name": "Use the \"Publish\" Button",
+          "detail": "Most platforms deploy your app with one click. Deploy to a live URL and test it in an incognito window."
+        },
+        {
+          "name": "Final Cross-Device Check",
+          "detail": "Open the app on a phone, tablet, and desktop. Test in different browsers (Chrome, Safari) to ensure nothing is broken."
+        },
+        {
+          "name": "Do a Soft Launch",
+          "detail": "Release it quietly to a small group of users first. This acts as a final live test before a wider announcement."
+        },
+        {
+          "name": "Collect Feedback Post-Launch",
+          "detail": "Provide an easy way for users to report bugs or give feedback. The agility of no-code means you can often fix issues in minutes."
+        }
+      ]
+    }
+  }
 }
